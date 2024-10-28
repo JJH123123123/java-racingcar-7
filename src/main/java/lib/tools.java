@@ -3,6 +3,7 @@ package lib;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import model.RacingCar;
 
 public class tools {
@@ -12,15 +13,10 @@ public class tools {
     }
 
     public static List<RacingCar> findWinner(List<RacingCar> cars) {
-        int m = -1;
         int n = cars.size();
-        List<RacingCar> winners = new ArrayList<RacingCar>();
-        for (RacingCar racingCar : cars) {
-            if (racingCar.getScore() > m) {
-                m = racingCar.getScore();
-            }
-        }
+        int m = findMaxinCars(cars);
 
+        List<RacingCar> winners = new ArrayList<RacingCar>();
         for (RacingCar car : cars) {
             if (car.getScore() == m) {
                 winners.add(car);
@@ -50,6 +46,7 @@ public class tools {
                 forward(car);
                 System.out.println(car.toString()); // 중간 출력
             }
+            System.out.println();
             List<RacingCar> winner = findWinner(cars);
             for (RacingCar car : winner
                  ) {
@@ -58,4 +55,23 @@ public class tools {
         }
     }
 
+    public void end(List<RacingCar> cars){
+        int maxinCars = findMaxinCars(cars);
+        List<RacingCar> winners = findWinner(cars);
+
+        String names = winners.stream().map(RacingCar::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + names);
+        return;
+    }
+
+    private static int findMaxinCars(List<RacingCar> cars) {
+        int M = -1;
+        for (RacingCar car : cars){ // find max value
+            if (car.getScore() > M) {
+                M = car.getScore();
+            }
+        }
+    }
 }
