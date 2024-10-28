@@ -2,7 +2,8 @@ package model;
 
 public class RacingCar {
     private String name;
-    int score;
+    private int score;
+    private int totalScore;
 
     public RacingCar(String name) {
         this.name = name;
@@ -15,5 +16,18 @@ public class RacingCar {
 
     public int getScore() {
         return score;
+    }
+
+    @Override
+    public String toString() {
+        String tmp = "";
+        for(int i=  0;i<this.score;i++){
+            tmp+="-";
+        }
+        return this.name + " : " + tmp;
+    }
+
+    public void addScore() {
+        this.totalScore++;
     }
 }
