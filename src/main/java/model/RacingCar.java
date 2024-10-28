@@ -30,4 +30,8 @@ public class RacingCar {
     public void addScore() {
         this.totalScore++;
     }
+
+    public String getName() {
+        return name;
+    }
 }
