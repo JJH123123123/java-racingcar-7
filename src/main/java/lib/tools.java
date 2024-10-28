@@ -38,4 +38,13 @@ public class tools {
             System.out.println(car.toString());
         }
     }
+
+    public void testOneCar(RacingCar car){
+        int dice = randomInt(10);
+        if(dice>=4){
+            car.addOne();
+        }
+    }
+
+
 }
