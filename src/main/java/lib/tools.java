@@ -1,12 +1,9 @@
 
 package lib;
 
-import camp.nextstep.edu.missionutils.test.Assertions;
 import java.util.ArrayList;
 import java.util.List;
 import model.RacingCar;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public class tools {
 
@@ -46,5 +43,19 @@ public class tools {
         }
     }
 
+    public void startLap(int n, List<RacingCar> cars){
+        System.out.println("실행 결과");
+        for(int i =0;i<n;i++){ // start nthLap
+            for (RacingCar car : cars) {
+                forward(car);
+                System.out.println(car.toString()); // 중간 출력
+            }
+            List<RacingCar> winner = findWinner(cars);
+            for (RacingCar car : winner
+                 ) {
+                car.addScore();
+            }
+        }
+    }
 
 }
