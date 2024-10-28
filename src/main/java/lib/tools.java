@@ -39,7 +39,7 @@ public class tools {
         }
     }
 
-    public void testOneCar(RacingCar car){
+    public void forward(RacingCar car){
         int dice = randomInt(10);
         if(dice>=4){
             car.addOne();
