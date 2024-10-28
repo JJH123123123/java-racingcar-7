@@ -1,17 +1,17 @@
 
-package util;
+package lib;
 
 import java.util.ArrayList;
 import java.util.List;
 import model.RacingCar;
 
-public class Util {
+public class tools {
 
-    static int randomInt(int max){
+    public static int randomInt(int max){
         return (int)(Math.random()*max)+1;
     }
 
-    static List<RacingCar> findWinner(List<RacingCar> cars){
+    public static List<RacingCar> findWinner(List<RacingCar> cars){
         int m = -1;
         int n = cars.size();
         List<RacingCar> winners = new ArrayList<RacingCar>();
@@ -26,7 +26,7 @@ public class Util {
                 winners.add(car);
             }
         }
-        
+
         return winners;
     }
 }

@@ -1,3 +1,4 @@
+package model;
 
 public class RacingCar {
     private String name;
@@ -10,5 +11,9 @@ public class RacingCar {
 
     public void addOne() {
         this.score++;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
