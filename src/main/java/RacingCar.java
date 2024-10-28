@@ -1,9 +1,9 @@
 
-public class Racer {
+public class RacingCar {
     private String name;
     int score;
 
-    public Racer(String name) {
+    public RacingCar(String name) {
         this.name = name;
         this.score = 0;
     }
